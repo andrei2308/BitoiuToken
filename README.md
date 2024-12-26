@@ -1,66 +1,56 @@
-## Foundry
+# BitoiuToken
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+BitoiuToken is a simple implementation of an ERC-20 token using the standard provided by the OpenZeppelin library. The project offers basic functionalities required for an ERC-20 token.
 
-Foundry consists of:
+## Features
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- Transfer tokens to other addresses.
+- Approve and allocate tokens to other addresses.
+- Functions to check balances and available allocations.
+- Ability to mint or burn tokens.
 
-## Documentation
+## Technologies Used
 
-https://book.getfoundry.sh/
+- **Solidity**: Programming language for smart contracts.
+- **OpenZeppelin**: Standard library for secure and efficient smart contracts.
 
-## Usage
+## How to Use
 
-### Build
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/andrei2308/BitoiuToken.git
+   cd BitoiuToken
+   ```
 
-```shell
-$ forge build
-```
+2. Install dependencies:
+   ```bash
+   forge install
+   ```
 
-### Test
+3. Compile the contracts:
+   ```bash
+   forge build
+   ```
 
-```shell
-$ forge test
-```
+4. Test the functionalities with the command:
+   ```bash
+   forge test
+   ```
 
-### Format
+5. Deploy the contract on an Ethereum network:
+   ```bash
+   forge script scripts/Deploy.s.sol --rpc-url <network-rpc-url> --private-key <your-private-key> --broadcast
+   ```
 
-```shell
-$ forge fmt
-```
+## Key Functions
 
-### Gas Snapshots
+- `transfer(address to, uint256 amount)`: Transfers tokens to another address.
+- `approve(address spender, uint256 amount)`: Approves an address to spend tokens.
+- `allowance(address owner, address spender)`: Checks the available allocation for an address.
+- `mint(address to, uint256 amount)`: Mints new tokens.
+- `burn(uint256 amount)`: Burns existing tokens.
 
-```shell
-$ forge snapshot
-```
+## License
 
-### Anvil
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
