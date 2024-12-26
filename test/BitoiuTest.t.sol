@@ -39,10 +39,7 @@ contract BitoiuTest is Test {
 
         assertEq(bToken.balanceOf(loredana), transferAmount);
         assertEq(bToken.balanceOf(chitoiu), STARTING_BALANCE - transferAmount);
-        assertEq(
-            bToken.allowance(chitoiu, loredana),
-            initialAllowance - transferAmount
-        );
+        assertEq(bToken.allowance(chitoiu, loredana), initialAllowance - transferAmount);
     }
 
     function testCannotTransferMoreThanBalance() public {
